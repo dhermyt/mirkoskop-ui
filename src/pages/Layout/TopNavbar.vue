@@ -5,17 +5,23 @@
         <h3 class="md-title">{{ $route.name }}</h3>
       </div>
       <div class="md-toolbar-section-end">
-        <div class="md-collapse">
-          <div class="md-autocomplete">
-            <md-autocomplete
-              class="search"
-              v-model="selectedEmployee"
-              :md-options="employees"
-            >
-              <label>Wyszukaj tag...</label>
-            </md-autocomplete>
-          </div>
-        </div>
+        <md-field md-clearable>
+          <label>Wybierz tag</label>
+          <md-input v-model="selectedTag"></md-input>
+        </md-field>
+        <md-field>
+          <label for="timeframe">Wybierz przedział czasowy</label>
+          <md-select
+            v-model="selectedTimeframe"
+            name="timeframe"
+            id="timeframe"
+          >
+            <md-option value="week">Ostatni tydzień</md-option>
+            <md-option value="month">Ostatni miesiąc</md-option>
+            <md-option value="year">Ostatni rok</md-option>
+            <md-option value="alltime">Od początku</md-option>
+          </md-select>
+        </md-field>
       </div>
     </div>
   </md-toolbar>
@@ -23,20 +29,23 @@
 
 <script>
 export default {
-  data() {
-    return {
-      selectedEmployee: null,
-      employees: [
-        "Jim Halpert",
-        "Dwight Schrute",
-        "Michael Scott",
-        "Pam Beesly",
-        "Angela Martin",
-        "Kelly Kapoor",
-        "Ryan Howard",
-        "Kevin Malone"
-      ]
-    };
+  computed: {
+    selectedTag: {
+      get() {
+        return this.$store.state.currentSettings.selectedTag;
+      },
+      set(tag) {
+        this.$store.commit("UPDATE_SELECTED_TAG", tag);
+      }
+    },
+    selectedTimeframe: {
+      get() {
+        return this.$store.state.currentSettings.selectedTimeframe;
+      },
+      set(timeframe) {
+        this.$store.commit("UPDATE_SELECTED_TIMEFRAME", timeframe);
+      }
+    }
   }
 };
 </script>
