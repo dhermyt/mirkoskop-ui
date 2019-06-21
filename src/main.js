@@ -36,7 +36,8 @@ const store = new Vuex.Store({
     currentSettings: {
       selectedTag: "",
       selectedTimeframe: "alltime"
-    }
+    },
+    currentReport: {}
   },
   mutations: {
     UPDATE_SELECTED_TAG(state, value) {
@@ -44,6 +45,9 @@ const store = new Vuex.Store({
     },
     UPDATE_SELECTED_TIMEFRAME(state, value) {
       state.currentSettings.selectedTimeframe = value;
+    },
+    UPDATE_CURRENT_REPORT(state, value) {
+      state.currentReport = value;
     }
   }
 });
