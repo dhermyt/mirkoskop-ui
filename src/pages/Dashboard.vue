@@ -1,52 +1,67 @@
 <template>
-  <div class="content">
-    <div class="md-layout">
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
-        <stats-card data-background-color="green">
-          <template slot="header">
-            <md-icon>store</md-icon>
-          </template>
+  <div class="test">
+    <div class="content" v-if="!isEmptyReport">
+      <div class="md-layout">
+        <div
+          class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+        >
+          <stats-card data-background-color="green">
+            <template slot="header">
+              <md-icon>store</md-icon>
+            </template>
 
-          <template slot="content">
-            <p class="category">Liczba wpisów</p>
-            <h3 class="title">{{ currentReport.totalEntriesCount }}</h3>
-          </template>
-        </stats-card>
-      </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      >
-        <stats-card data-background-color="orange">
-          <template slot="header">
-            <md-icon>content_copy</md-icon>
-          </template>
+            <template slot="content">
+              <p class="category">Liczba wpisów</p>
+              <h3 class="title">{{ currentReport.totalEntriesCount }}</h3>
+            </template>
+          </stats-card>
+        </div>
+        <div
+          class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+        >
+          <stats-card data-background-color="orange">
+            <template slot="header">
+              <md-icon>content_copy</md-icon>
+            </template>
 
-          <template slot="content">
-            <p class="category">Liczba komentarzy</p>
-            <h3 class="title">{{ currentReport.totalCommentsCount }}</h3>
-          </template>
-        </stats-card>
+            <template slot="content">
+              <p class="category">Liczba komentarzy</p>
+              <h3 class="title">{{ currentReport.totalCommentsCount }}</h3>
+            </template>
+          </stats-card>
+        </div>
+        <div
+          class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+        ></div>
+        <div
+          class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
+        ></div>
+        <div
+          class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
+        >
+          <md-card>
+            <md-card-header data-background-color="blue">
+              <h4 class="title">Najlepsze wpisy</h4>
+            </md-card-header>
+            <md-card-content>
+              <nav-tabs-table></nav-tabs-table>
+            </md-card-content>
+          </md-card>
+        </div>
       </div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      ></div>
-      <div
-        class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25"
-      ></div>
-      <div
-        class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
-      >
-        <md-card>
-          <md-card-header data-background-color="blue">
-            <h4 class="title">Najlepsze wpisy</h4>
+    </div>
+    <div v-if="isEmptyReport" class="error-box">
+      <md-card class="md-accent">
+        <md-ripple>
+          <md-card-header>
+            <div class="md-title">Brak danych</div>
           </md-card-header>
+
           <md-card-content>
-            <nav-tabs-table></nav-tabs-table>
+            Wystąpił błąd lub nie znaleziono raportu
           </md-card-content>
-        </md-card>
-      </div>
+        </md-ripple>
+      </md-card>
     </div>
   </div>
 </template>
@@ -85,12 +100,28 @@ export default {
   computed: {
     currentReport: {
       get() {
-        return this.$store.state.currentReport;
+        return this.$store.state.currentReport || {};
       },
       set(report) {
         this.$store.commit("UPDATE_CURRENT_REPORT", report);
       }
+    },
+    isEmptyReport() {
+      return !this.$store.state.currentReport;
     }
   }
 };
 </script>
+
+<style scoped>
+.error-box {
+  margin-top: 100px;
+  max-width: 30%;
+}
+
+.test {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

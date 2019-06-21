@@ -1,8 +1,10 @@
 <template>
   <div>
-    <md-table v-model="users" @md-selected="onSelect">
+    <md-table v-model="currentEntries">
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell>{{ item.name }}</md-table-cell>
+        <md-table-cell
+          ><pre>{{ item.body }}</pre>
+        </md-table-cell>
       </md-table-row>
     </md-table>
   </div>
@@ -11,27 +13,19 @@
 <script>
 export default {
   name: "entries-table",
-  data() {
-    return {
-      selected: [],
-      users: [
-        {
-          name: 'Sign contract for "What are conference organizers afraid of?"'
-        },
-        {
-          name: "Lines From Great Russian Literature? Or E-mails From My Boss?"
-        },
-        {
-          name:
-            "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit"
-        }
-      ]
-    };
-  },
-  methods: {
-    onSelect: function(items) {
-      this.selected = items;
+  computed: {
+    currentEntries: {
+      get() {
+        return (this.$store.state.currentReport || {}).most_upvoted || {};
+      }
     }
   }
 };
 </script>
+
+<style scoped>
+pre {
+  text-align: left;
+  white-space: pre-line;
+}
+</style>
