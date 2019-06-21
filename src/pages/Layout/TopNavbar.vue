@@ -2,26 +2,30 @@
   <md-toolbar md-elevation="0" class="md-transparent">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">{{ $route.name }}</h3>
+        <span class="md-headline">{{ $route.name }}</span>
       </div>
       <div class="md-toolbar-section-end">
-        <md-field md-clearable>
-          <label>Wybierz tag</label>
-          <md-input v-model="selectedTag"></md-input>
-        </md-field>
-        <md-field>
-          <label for="timeframe">Wybierz przedział czasowy</label>
-          <md-select
-            v-model="selectedTimeframe"
-            name="timeframe"
-            id="timeframe"
-          >
-            <md-option value="week">Ostatni tydzień</md-option>
-            <md-option value="month">Ostatni miesiąc</md-option>
-            <md-option value="year">Ostatni rok</md-option>
-            <md-option value="alltime">Od początku</md-option>
-          </md-select>
-        </md-field>
+        <div class="field">
+          <md-field md-clearable>
+            <label>Wybierz tag</label>
+            <md-input v-model="selectedTag"></md-input>
+          </md-field>
+        </div>
+        <div class="field">
+          <md-field>
+            <label for="timeframe">Wybierz przedział czasowy</label>
+            <md-select
+              v-model="selectedTimeframe"
+              name="timeframe"
+              id="timeframe"
+            >
+              <md-option value="week">Ostatni tydzień</md-option>
+              <md-option value="month">Ostatni miesiąc</md-option>
+              <md-option value="year">Ostatni rok</md-option>
+              <md-option value="alltime">Od początku</md-option>
+            </md-select>
+          </md-field>
+        </div>
       </div>
     </div>
   </md-toolbar>
@@ -50,4 +54,9 @@ export default {
 };
 </script>
 
-<style lang="css"></style>
+<style lang="css" scoped>
+
+.field {
+  margin: 0 20px;
+}
+</style>
