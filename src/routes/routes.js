@@ -10,7 +10,7 @@ const routes = [
     children: [
       {
         path: "home",
-        name: "Mikroblogex-POL i Synowie",
+        name: "Mirkoskop",
         component: Dashboard
       }
     ]
