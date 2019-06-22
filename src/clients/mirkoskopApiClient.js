@@ -4,7 +4,7 @@ export class MirkoskopApiClient {
   constructor() {
     this.baseUrl = "";
     this.client = axios.create({
-      baseURL: "https://mirkoexplorerstorage.blob.core.windows.net/mirexp/",
+      baseURL: "https://mirkoskop.blob.core.windows.net/mirko/",
       timeout: 1000
     });
   }

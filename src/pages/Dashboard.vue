@@ -12,7 +12,7 @@
 
             <template slot="content">
               <p class="category">Liczba wpisów</p>
-              <h3 class="title">{{ currentReport.totalEntriesCount }}</h3>
+              <h3 class="title">{{ currentReport.totalEntries }}</h3>
             </template>
           </stats-card>
         </div>
@@ -26,7 +26,7 @@
 
             <template slot="content">
               <p class="category">Liczba komentarzy</p>
-              <h3 class="title">{{ currentReport.totalCommentsCount }}</h3>
+              <h3 class="title">{{ currentReport.totalComments }}</h3>
             </template>
           </stats-card>
         </div>
