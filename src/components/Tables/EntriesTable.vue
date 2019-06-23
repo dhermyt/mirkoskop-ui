@@ -7,7 +7,7 @@
         </md-table-cell>
         <md-table-cell class="cell-top"
           ><div>
-            <pre>{{ item.body }}</pre>
+            <pre v-html="item.body"></pre>
             <div v-if="item.embedType === 'image'">
               <a v-bind:href="item.embedUrl" target="_blank">
                 <img v-bind:src="item.embedUrl" alt="img" style="width: 30%;" />
