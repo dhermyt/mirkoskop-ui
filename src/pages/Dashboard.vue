@@ -7,7 +7,7 @@
         >
           <stats-card data-background-color="green">
             <template slot="header">
-              <md-icon>store</md-icon>
+              <md-icon>chat</md-icon>
             </template>
 
             <template slot="content">
@@ -21,7 +21,7 @@
         >
           <stats-card data-background-color="orange">
             <template slot="header">
-              <md-icon>content_copy</md-icon>
+              <md-icon>forum</md-icon>
             </template>
 
             <template slot="content">
