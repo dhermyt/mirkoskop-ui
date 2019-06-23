@@ -35,7 +35,7 @@ const store = new Vuex.Store({
   state: {
     currentSettings: {
       selectedTag: "",
-      selectedTimeframe: "alltime"
+      selectedTimeframe: "month"
     },
     currentReport: {}
   },
