@@ -26,6 +26,15 @@
             </md-select>
           </md-field>
         </div>
+        <div>
+          <a href="https://github.com/dhermyt/mirkoskop-ui" target="_blank">
+            <img
+              src="https://image.flaticon.com/icons/svg/25/25231.svg"
+              alt="github"
+              style="max-width: 32px"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </md-toolbar>
