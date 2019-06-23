@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import Vuex from "vuex";
-import VueAnalytics from "vue-analytics";
 import VueRouter from "vue-router";
 import App from "./App";
 
@@ -25,9 +24,6 @@ Vue.use(Vuex);
 Vue.use(MaterialDashboard);
 Vue.use(GlobalComponents);
 Vue.use(GlobalDirectives);
-Vue.use(VueAnalytics, {
-  id: "UA-73132503-4"
-});
 
 // configure router
 const router = new VueRouter({
