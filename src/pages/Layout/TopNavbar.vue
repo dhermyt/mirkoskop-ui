@@ -5,26 +5,30 @@
         <span class="md-headline">{{ $route.name }}</span>
       </div>
       <div class="md-toolbar-section-end">
-        <div class="field">
-          <md-field md-clearable>
-            <label>Wybierz tag</label>
-            <md-input v-model="selectedTag"></md-input>
-          </md-field>
+        <div class="md-layout md-medium-size-50 md-xsmall-size-100 md-size-50">
+          <div class="field">
+            <md-field md-clearable>
+              <label>Wybierz tag</label>
+              <md-input v-model="selectedTag"></md-input>
+            </md-field>
+          </div>
         </div>
-        <div class="field">
-          <md-field>
-            <label for="timeframe">Wybierz przedział czasowy</label>
-            <md-select
-              v-model="selectedTimeframe"
-              name="timeframe"
-              id="timeframe"
-            >
-              <md-option value="week">Ostatni tydzień</md-option>
-              <md-option value="month">Ostatni miesiąc</md-option>
-              <md-option value="year">Ostatni rok</md-option>
-              <md-option value="alltime">Od początku</md-option>
-            </md-select>
-          </md-field>
+        <div class="md-layout md-medium-size-50 md-xsmall-size-100 md-size-50">
+          <div class="field">
+            <md-field>
+              <label for="timeframe">Wybierz przedział czasowy</label>
+              <md-select
+                v-model="selectedTimeframe"
+                name="timeframe"
+                id="timeframe"
+              >
+                <md-option value="week">Ostatni tydzień</md-option>
+                <md-option value="month">Ostatni miesiąc</md-option>
+                <md-option value="year">Ostatni rok</md-option>
+                <md-option value="alltime">Od początku</md-option>
+              </md-select>
+            </md-field>
+          </div>
         </div>
         <div>
           <a href="https://github.com/dhermyt/mirkoskop-ui" target="_blank">

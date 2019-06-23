@@ -1,5 +1,5 @@
 <template>
-  <div class="test">
+  <div class="content-container">
     <div class="content" v-if="!isEmptyReport">
       <div class="md-layout">
         <div
@@ -119,9 +119,13 @@ export default {
   max-width: 30%;
 }
 
-.test {
+.content-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.content {
+  width: 100%;
 }
 </style>
