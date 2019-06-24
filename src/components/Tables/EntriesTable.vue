@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul style="list-style-type: none">
+    <ul>
       <li v-for="item in currentEntries" v-bind:key="item.id">
         <div class="entry-header">
           <div class="author-cell">
@@ -83,12 +83,17 @@ a:hover {
 }
 
 .entry-embed {
-  width: 30%;
+  width: 50%;
   margin-top: 10px;
 }
 
 #votes-counter {
   color: green;
   font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 </style>
