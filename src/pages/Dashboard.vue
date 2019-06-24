@@ -39,7 +39,7 @@
         <div
           class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100"
         >
-          <md-card>
+          <md-card style="max-width: 1000px">
             <md-card-header data-background-color="blue">
               <h4 class="title">Najlepsze wpisy</h4>
             </md-card-header>

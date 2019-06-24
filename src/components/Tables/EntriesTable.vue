@@ -1,22 +1,9 @@
 <template>
   <div>
-    <md-table v-model="currentEntries">
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell class="cell-top"
-          ><span style="color: green;">+{{ item.voteCount }}</span>
-        </md-table-cell>
-        <md-table-cell class="cell-top"
-          ><div>
-            <pre v-html="item.body"></pre>
-            <div v-if="item.embedType === 'image'">
-              <a v-bind:href="item.embedUrl" target="_blank">
-                <img v-bind:src="item.embedUrl" alt="img" style="width: 30%;" />
-              </a>
-            </div>
-          </div>
-        </md-table-cell>
-        <md-table-cell class="cell-top"
-          ><div class="author-cell">
+    <ul style="list-style-type: none">
+      <li v-for="item in currentEntries" v-bind:key="item.id">
+        <div class="entry-header">
+          <div class="author-cell">
             <img
               v-bind:src="item.authorAvatar"
               style="max-width: 32px"
@@ -25,20 +12,29 @@
             <a
               v-bind:href="'https://www.wykop.pl/ludzie/' + item.authorLogin"
               target="_blank"
-              style="margin-left: 5px"
-              >{{ item.authorLogin }}</a
+              style="margin-left: 10px"
+              ><span style="font-weight: bold">{{ item.authorLogin }}</span></a
+            >
+            <a
+              v-bind:href="'https://www.wykop.pl/wpis/' + item.id"
+              target="_blank"
+              style="margin-left: 10px"
+              >{{ item.date }}</a
             >
           </div>
-        </md-table-cell>
-        <md-table-cell class="cell-top">
-          <a
-            v-bind:href="'https://www.wykop.pl/wpis/' + item.id"
-            target="_blank"
-            >{{ item.date }}</a
-          >
-        </md-table-cell>
-      </md-table-row>
-    </md-table>
+          <span id="votes-counter">+{{ item.voteCount }}</span>
+        </div>
+        <div class="entry-content">
+          <pre v-html="item.body"></pre>
+          <div v-if="item.embedType === 'image'">
+            <a v-bind:href="item.embedUrl" target="_blank">
+              <img v-bind:src="item.embedUrl" alt="img" class="entry-embed" />
+            </a>
+          </div>
+        </div>
+        <md-divider></md-divider>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -62,10 +58,6 @@ pre {
   margin: 0;
 }
 
-.cell-top {
-  vertical-align: top;
-}
-
 a {
   color: black !important;
   text-decoration: none;
@@ -78,5 +70,25 @@ a:hover {
 .author-cell {
   display: flex;
   align-items: flex-start;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.entry-content {
+  margin-bottom: 20px;
+}
+
+.entry-embed {
+  width: 30%;
+  margin-top: 10px;
+}
+
+#votes-counter {
+  color: green;
+  font-weight: bold;
 }
 </style>
