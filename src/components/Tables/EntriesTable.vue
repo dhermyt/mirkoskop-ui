@@ -6,19 +6,19 @@
           <div class="author-cell">
             <img
               v-bind:src="item.authorAvatar"
-              style="max-width: 32px"
+              style="max-width: 2rem"
               alt="avatar"
             />
             <a
               v-bind:href="'https://www.wykop.pl/ludzie/' + item.authorLogin"
               target="_blank"
-              style="margin-left: 10px"
+              style="margin-left: 0.5rem"
               ><span style="font-weight: bold">{{ item.authorLogin }}</span></a
             >
             <a
               v-bind:href="'https://www.wykop.pl/wpis/' + item.id"
               target="_blank"
-              style="margin-left: 10px"
+              style="margin-left: 0.5rem; font-size: small"
               >{{ item.date }}</a
             >
           </div>
@@ -75,16 +75,16 @@ a:hover {
 .entry-header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
+  margin: 1rem 0;
 }
 
 .entry-content {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .entry-embed {
   width: 50%;
-  margin-top: 10px;
+  margin-top: 0.5rem;
 }
 
 #votes-counter {
